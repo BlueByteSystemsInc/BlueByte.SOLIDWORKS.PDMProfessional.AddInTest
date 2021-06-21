@@ -1,0 +1,509 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BlueByte.SOLIDWORKS.PDMAddInFramework</name>
+    </assembly>
+    <members>
+        <member name="T:BlueByte.SOLIDWORKS.PDMAddInFramework.Attributes.ListenForAttribute">
+            <summary>
+            Listen for PDM events attribute.
+            </summary>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.Attributes.ListenForAttribute.#ctor(EPDM.Interop.epdm.EdmCmdType)">
+            <summary>
+            Creates a new instance of the ListenFor attribute
+            </summary>
+            <param name="_event"></param>
+        </member>
+        <member name="P:BlueByte.SOLIDWORKS.PDMAddInFramework.Attributes.ListenForAttribute.Event">
+            <summary>
+            PDM event to listen to
+            </summary>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.Attributes.MenuAttribute.#ctor(System.Int32,System.String,EPDM.Interop.epdm.EdmMenuFlags,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Creates a command menu.
+            </summary>
+            <param name="iD">ID of the command.</param>
+            <param name="menuCaption">Text that will appear in the menu.</param>
+            <param name="flags">Where the menu will appear.</param>
+            <param name="statusBarHelp">Help message that will appear in the status bar.</param>
+            <param name="toolTip">Help message that appear in the Windows tooltip.</param>
+            <param name="toolButtonIndex">Index of the command button.</param>
+            <param name="toolbarImageID">ID of the toolbar image.</param>
+        </member>
+        <member name="P:BlueByte.SOLIDWORKS.PDMAddInFramework.Attributes.MenuAttribute.ID">
+            <summary>
+            ID of the command.
+            </summary>
+        </member>
+        <member name="P:BlueByte.SOLIDWORKS.PDMAddInFramework.Attributes.MenuAttribute.MenuCaption">
+            <summary>
+            Text that will appear in the menu.
+            </summary>
+        </member>
+        <member name="P:BlueByte.SOLIDWORKS.PDMAddInFramework.Attributes.MenuAttribute.Flags">
+            <summary>
+            Where the menu will appear.
+            </summary>
+        </member>
+        <member name="P:BlueByte.SOLIDWORKS.PDMAddInFramework.Attributes.MenuAttribute.ToolButtonIndex">
+            <summary>
+            Index of the command button.
+            </summary>
+        </member>
+        <member name="P:BlueByte.SOLIDWORKS.PDMAddInFramework.Attributes.MenuAttribute.ToolbarImageID">
+            <summary>
+            ID of the toolbar image.
+            </summary>
+        </member>
+        <member name="P:BlueByte.SOLIDWORKS.PDMAddInFramework.Attributes.MenuAttribute.StatusBarHelp">
+            <summary>
+            Help message that will appear in the status bar.
+            </summary>
+        </member>
+        <member name="P:BlueByte.SOLIDWORKS.PDMAddInFramework.Attributes.MenuAttribute.Tooltip">
+            <summary>
+            Help message that appear in the Windows tooltip
+            </summary>
+        </member>
+        <member name="P:BlueByte.SOLIDWORKS.PDMAddInFramework.Attributes.AddInVersionAttribute.UseAssemblyFileRevision">
+            <summary>
+            Use this option for frequent builds.
+            </summary>
+        </member>
+        <member name="P:BlueByte.SOLIDWORKS.PDMAddInFramework.Attributes.AddInVersionAttribute.Version">
+            <summary>
+            Specific version.  
+            </summary>
+        </member>
+        <member name="T:BlueByte.SOLIDWORKS.PDMAddInFramework.Attributes.IsTaskAttribute">
+            <summary>
+            Use this to make an add-in a task
+            </summary>
+        </member>
+        <member name="P:BlueByte.SOLIDWORKS.PDMAddInFramework.Attributes.IsTaskAttribute.IsTask">
+            <summary>
+            Gets or sets whether the add-in is a custom task.
+            </summary>
+        </member>
+        <member name="T:BlueByte.SOLIDWORKS.PDMAddInFramework.Identity">
+            <summary>
+            Add-in identity.
+            </summary>
+        </member>
+        <member name="F:BlueByte.SOLIDWORKS.PDMAddInFramework.Identity.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="F:BlueByte.SOLIDWORKS.PDMAddInFramework.Identity.Description">
+            <summary>
+            Description
+            </summary>
+        </member>
+        <member name="F:BlueByte.SOLIDWORKS.PDMAddInFramework.Identity.CompanyName">
+            <summary>
+            Company name
+            </summary>
+        </member>
+        <member name="F:BlueByte.SOLIDWORKS.PDMAddInFramework.Identity.Version">
+            <summary>
+            Add-in version
+            </summary>
+        </member>
+        <member name="F:BlueByte.SOLIDWORKS.PDMAddInFramework.Identity.RequiredMajorVersion">
+            <summary>
+            Required major version.
+            </summary>
+        </member>
+        <member name="F:BlueByte.SOLIDWORKS.PDMAddInFramework.Identity.RequiredMinorVersion">
+            <summary>
+            Required minor.
+            </summary>
+        </member>
+        <member name="T:BlueByte.SOLIDWORKS.PDMAddInFramework.Core.ITaskSetupPage">
+            <summary>
+            Task setup page.
+            </summary>
+        </member>
+        <member name="P:BlueByte.SOLIDWORKS.PDMAddInFramework.Core.ITaskSetupPage.Name">
+            <summary>
+            Name of the setup page.
+            </summary>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.Core.ITaskSetupPage.LoadData(EPDM.Interop.epdm.EdmCmd@,BlueByte.SOLIDWORKS.PDMAddInFramework.Identity)">
+            <summary>
+            Loads data from the task.
+            </summary>
+            <param name="cmd">EdmCmd specific to the <see cref="F:EPDM.Interop.epdm.EdmCmdType.EdmCmd_TaskSetup"/> hook.</param>
+            <param name="identity">Use because IEdmTaskInstance guid returns empty guid.</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:BlueByte.SOLIDWORKS.PDMAddInFramework.Core.ITaskSetupPage.StoreData(EPDM.Interop.epdm.EdmCmd@)" -->
+        <member name="T:BlueByte.SOLIDWORKS.PDMAddInFramework.Core.TaskSetupPage`1">
+            <summary>
+            Tasksetup page template.
+            </summary>
+            <typeparam name="T">ViewModel</typeparam>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.Core.TaskSetupPage`1.#ctor">
+            <summary>
+            Creates a new instance of the task page setup.
+            </summary>
+        </member>
+        <member name="P:BlueByte.SOLIDWORKS.PDMAddInFramework.Core.TaskSetupPage`1.SaveLoadDataToVariable">
+            <summary>
+            Saves and loads data from variable
+            </summary>
+        </member>
+        <member name="P:BlueByte.SOLIDWORKS.PDMAddInFramework.Core.TaskSetupPage`1.Vault">
+            <summary>
+            Gets the vault object.
+            </summary>
+        </member>
+        <member name="P:BlueByte.SOLIDWORKS.PDMAddInFramework.Core.TaskSetupPage`1.Identity">
+            <summary>
+            Gets the add-in identity.
+            </summary>
+        </member>
+        <member name="P:BlueByte.SOLIDWORKS.PDMAddInFramework.Core.TaskSetupPage`1.SaveLoadDataToVariableId">
+            <summary>
+            Id of the variable to save and load data from.
+            </summary>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.Core.TaskSetupPage`1.OnDataLoaded">
+            <summary>
+            Fires when data is loaded.
+            </summary>
+        </member>
+        <member name="P:BlueByte.SOLIDWORKS.PDMAddInFramework.Core.TaskSetupPage`1.ViewModel">
+            <summary>
+            ViewModel
+            </summary>
+        </member>
+        <member name="P:BlueByte.SOLIDWORKS.PDMAddInFramework.Core.TaskSetupPage`1.Name">
+            <summary>
+            Name of the setup page.
+            </summary>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.Core.TaskSetupPage`1.LoadData(EPDM.Interop.epdm.EdmCmd@,BlueByte.SOLIDWORKS.PDMAddInFramework.Identity)">
+            <summary>
+            Load data.
+            </summary>
+            <param name="cmd">Cmd</param>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.Core.TaskSetupPage`1.StoreData(EPDM.Interop.epdm.EdmCmd@)">
+            <summary>
+            Stores Data
+            </summary>
+            <param name="cmd"></param>
+        </member>
+        <member name="T:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase">
+            <summary>
+            Taskbase class.
+            </summary>
+        </member>
+        <member name="P:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.Instance">
+            <summary>
+            Task instance.
+            </summary>
+        </member>
+        <member name="P:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.Properties">
+            <summary>
+            Properties
+            </summary>
+        </member>
+        <member name="P:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.BeforeYouCrash">
+            <summary>
+            Action to execute before task crashes.
+            </summary>
+        </member>
+        <member name="F:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.Identity">
+            <summary>
+            Stores identity of the task add-in.
+            </summary>
+        </member>
+        <member name="P:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.CatchAllUnhandledException">
+            <summary>
+            Catch all unhandled exceptions and log them.
+            </summary>
+        </member>
+        <member name="P:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.LoggerType">
+            <summary>
+            Sets the type of the logger to be used.
+            </summary>
+        </member>
+        <member name="P:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.IsInitialized">
+            <summary>
+            Gets whether or not task is initialized (ie container and logger created).
+            </summary>
+        </member>
+        <member name="P:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.Container">
+            <summary>
+            DI Container.
+            </summary>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.RegisterPDMFrameworkTypes">
+            <summary>
+            Fires when the application is initialized. Register types of calling assembly.
+            </summary>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.#ctor">
+            <summary>
+            Create a new instance of the addIn base class.
+            </summary>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.OnLoadAdditionalAssemblies(System.IO.DirectoryInfo)">
+            <summary>
+            Load assemblies that failed loading.
+            </summary>
+            <param name="addinDirectory">Directory of the add-in.</param>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.OnLoggerOutputSat(System.String)">
+            <summary>
+            Sets the output folder of the logger.
+            </summary>
+            <param name="defaultDirectory"></param>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.OnLoggerTypeChosen(BlueByte.SOLIDWORKS.PDMAddInFramework.Diagnostics.LoggerType_e)">
+            <summary>
+            Sets the type of the logger.
+            </summary>
+            <param name="defaultType"></param>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.OnUnhandledExceptions(System.Boolean,System.Action{System.Exception})">
+            <summary>
+            Sets how to handle unhandled exceptions
+            </summary>
+            <param name="catchAllExceptions"></param>
+            <param name="logAction"></param>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.OnRegisterAdditionalTypes(SimpleInjector.Container)">
+            <summary>
+            Registers additional types.
+            </summary>
+            <param name="container"></param>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.CreatePageInstance``1">
+            <summary>
+            Creates a instance of the specified page type using the container.
+            </summary>
+            <typeparam name="T">Page type</typeparam>
+            <param name="Page">page type</param>
+            <returns>An instance of ITaskSetupPage</returns>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.Initialize">
+            <summary>
+            Initializes task (Registers types and creates logger).
+            </summary>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.AttachDebugger">
+            <summary>
+            Attaches the debugger.
+            </summary>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.AddTaskSetupPages(BlueByte.SOLIDWORKS.PDMAddInFramework.Core.ITaskSetupPage[])">
+            <summary>
+            Add setup pages to task.
+            </summary>
+            <param name="taskSetupPages">Array of <see cref="T:BlueByte.SOLIDWORKS.PDMAddInFramework.Core.ITaskSetupPage"/></param>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.AddTaskSetupPage(BlueByte.SOLIDWORKS.PDMAddInFramework.Core.ITaskSetupPage)">
+            <summary>
+            Add setup page to task. Use <seealso cref="M:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.CreatePageInstance``1"/> to create instance of a page that implements <see cref="T:BlueByte.SOLIDWORKS.PDMAddInFramework.Core.ITaskSetupPage"/>.
+            </summary>
+            <param name="taskSetupPage"></param>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.AddContextMenu(System.String,System.String)">
+            <summary>
+            Adds a context menu item to PDM.
+            </summary>
+            <param name="menuText">Text that will appear in the context menu.</param>
+            <param name="statusBarHelpText">Text that will appear in the statusbar.</param>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.GetSettings``1">
+            <summary>
+            Deserialize the view model of the <see cref="T:BlueByte.SOLIDWORKS.PDMAddInFramework.Core.TaskSetupPage`1"/>. Use this method in the <see cref="F:EPDM.Interop.epdm.EdmCmdType.EdmCmd_TaskRun"/> and <see cref="F:EPDM.Interop.epdm.EdmCmdType.EdmCmd_TaskLaunch"/> to get the settings.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns>T</returns>
+        </member>
+        <member name="P:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.Logger">
+            <summary>
+            Gets or sets the logger.
+            </summary>
+        </member>
+        <member name="P:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.Vault">
+            <summary>
+            Gets the vault object.
+            </summary>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.GetAddInInfo(EPDM.Interop.epdm.EdmAddInInfo@,EPDM.Interop.epdm.IEdmVault5,EPDM.Interop.epdm.IEdmCmdMgr5)">
+            <summary>
+            Fires when an add-in is setup.
+            </summary>
+            <param name="poInfo">Info object.</param>
+            <param name="poVault">Vault object.</param>
+            <param name="poCmdMgr">Command manager object.</param>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.TaskCancelCallback(EPDM.Interop.epdm.IEdmTaskInstance)">
+            <summary>
+            Task cancellation callback.
+            </summary>
+            <param name="taskInstance">Task instance.</param>
+            <returns>True or false</returns>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.TaskPauseCallBack(EPDM.Interop.epdm.IEdmTaskInstance)">
+            <summary>
+            Task pause callback.
+            </summary>
+            <param name="taskInstance">Task instance.</param>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.ForEachDatum(EPDM.Interop.epdm.EdmCmdData[]@,System.Action{EPDM.Interop.epdm.EdmCmdData})">
+            <summary>
+            Performs an action on affected data while allowing user to cancel or pause task.
+            </summary>
+            <param name="affectedData"></param>
+            <param name="Action"></param>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.ForEachFile(EPDM.Interop.epdm.EdmCmdData[]@,System.Action{EPDM.Interop.epdm.IEdmFile5})">
+            <summary>
+            Performs an action on affected file while allowing user to cancel or pause task.
+            </summary>
+            <param name="affectedData"></param>
+            <param name="Action"></param>
+            <remarks>This ignore EdmCmdData that are not files.</remarks>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.OnTaskDetails(EPDM.Interop.epdm.EdmCmd@,EPDM.Interop.epdm.EdmCmdData[]@)">
+            <summary>
+             Fires when task details are initialized
+            </summary>
+            <param name="poCmd">Command</param>
+            <param name="ppoData">Affected documents</param>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.OnTaskSetup(EPDM.Interop.epdm.EdmCmd@,EPDM.Interop.epdm.EdmCmdData[]@)">
+            <summary>
+            Fires when task is setup.
+            </summary>
+            <param name="poCmd"></param>
+            <param name="ppoData"></param>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.OnTaskDialogWindowCreated(EPDM.Interop.epdm.IEdmTaskProperties)">
+            <summary>
+            Fires when the task dialog window is created. This occurs when you create a new task or edit an existing one.
+            </summary>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.OnTaskLaunch(EPDM.Interop.epdm.EdmCmd@,EPDM.Interop.epdm.EdmCmdData[]@)">
+            <summary>
+            Fires when a task is launched.
+            </summary>
+            <param name="poCmd">Command</param>
+            <param name="ppoData">Affected documents</param>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.OnTaskRun(EPDM.Interop.epdm.EdmCmd@,EPDM.Interop.epdm.EdmCmdData[]@)">
+            <summary>
+            Fires when task runs on the executing machine.
+            </summary>
+            <param name="poCmd">Command</param>
+            <param name="ppoData">Affected documents</param>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.OnTaskSetupButton(EPDM.Interop.epdm.EdmCmd@,EPDM.Interop.epdm.EdmCmdData[]@)">
+            <summary>
+            Fires when user clicks OK button in the task setup.
+            </summary>
+            <param name="poCmd">Command</param>
+            <param name="ppoData">Affected documents</param>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.OnTaskLaunchButton(EPDM.Interop.epdm.EdmCmd@,EPDM.Interop.epdm.EdmCmdData[]@)">
+            <summary>
+            Fires when user clicks on the launch button.
+            </summary>
+            <param name="poCmd">Command</param>
+            <param name="ppoData">Affected documents</param>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.OnCmd(EPDM.Interop.epdm.EdmCmd@,EPDM.Interop.epdm.EdmCmdData[]@)">
+            <summary>
+            Fires a response to a command that the add-in is hooked too is being trigger.
+            </summary>
+            <param name="poCmd">PDM command</param>
+            <param name="ppoData">Affected data</param>
+        </member>
+        <member name="T:BlueByte.SOLIDWORKS.PDMAddInFramework.Diagnostics.IswPDMTaskLogger">
+            <summary>
+            Logger.
+            </summary>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.Diagnostics.IswPDMTaskLogger.LogToOutput(System.String,System.String)">
+            <summary>
+            Print a value in a text file.
+            </summary>
+            <param name="target">Text file path.</param>
+            <param name="value">New value.</param>
+        </member>
+        <member name="P:BlueByte.SOLIDWORKS.PDMAddInFramework.Diagnostics.IswPDMTaskLogger.OutputLocation">
+            <summary>
+            Ouput location.
+            </summary>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.Diagnostics.IswPDMTaskLogger.Print(System.Exception)">
+            <summary>
+            Print an exception.
+            </summary>
+            <param name="e">Exception</param>
+            <returns></returns>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.Diagnostics.IswPDMTaskLogger.Print(System.String)">
+            <summary>
+            Print an error message.
+            </summary>
+            <param name="errorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BlueByte.SOLIDWORKS.PDMAddInFramework.Exceptions.IdentityInfoException">
+            <summary>
+            Fires in <see cref="M:BlueByte.SOLIDWORKS.PDMAddInFramework.AddInBase.GetAddInInfo(EPDM.Interop.epdm.EdmAddInInfo@,EPDM.Interop.epdm.IEdmVault5,EPDM.Interop.epdm.IEdmCmdMgr5)"/> if attribute is missing.
+            </summary>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.Exceptions.IdentityInfoException.#ctor">
+            <summary>
+            Creates a new instance of the base exception.
+            </summary>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.Exceptions.IdentityInfoException.#ctor(System.String,System.Exception)">
+            <summary>
+            Creates a new instance of the base exception.
+            </summary>
+            <param name="message">Message.</param>
+            <param name="innerException">Inner exception.</param>
+        </member>
+        <member name="T:BlueByte.SOLIDWORKS.PDMAddInFramework.Exceptions.ITaskSetupPageNotUserControlException">
+            <summary>
+            Fires when the supplied <see cref="T:BlueByte.SOLIDWORKS.PDMAddInFramework.Core.ITaskSetupPage"/> is not a <see cref="T:System.Windows.Forms.UserControl"/>.
+            </summary>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.Exceptions.ITaskSetupPageNotUserControlException.#ctor(System.String,System.Exception)">
+            <summary>
+            Creates a new instance of the base exception.
+            </summary>
+            <param name="message">Message.</param>
+            <param name="innerException">Inner exception.</param>
+        </member>
+        <member name="T:BlueByte.SOLIDWORKS.PDMAddInFramework.Exceptions.swPDMAddInFrameworkException">
+            <summary>
+            Base exception.
+            </summary>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.Exceptions.swPDMAddInFrameworkException.#ctor">
+            <summary>
+            Creates a new instance of the base exception.
+            </summary>
+        </member>
+        <member name="M:BlueByte.SOLIDWORKS.PDMAddInFramework.Exceptions.swPDMAddInFrameworkException.#ctor(System.String,System.Exception)">
+            <summary>
+            Creates a new instance of the base exception.
+            </summary>
+            <param name="message">Message.</param>
+            <param name="innerException">Inner exception.</param>
+        </member>
+    </members>
+</doc>
